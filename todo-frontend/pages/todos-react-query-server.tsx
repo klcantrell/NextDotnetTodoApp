@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-export async function getServerSideProps() {
+import DarkModeSettings from '../components/dark-mode-settings';
+
+export async function getStaticProps() { // play with build time generation
   const todos = await getTodos();
   return { props: { todos } };
 }
@@ -21,6 +23,7 @@ export default function TodosReactQueryServer(props: any) {
           </ul>
         </>
       )}
+      <DarkModeSettings />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { useQuery } from 'react-query';
 
+import DarkModeSettings from '../components/dark-mode-settings';
+
 export default function TodosReactQueryClient() {
   const { data, isLoading } = useQuery('todos', async () => {
     const response = await fetch('https://localhost:5001/api/TodoItems');
@@ -18,6 +20,7 @@ export default function TodosReactQueryClient() {
           </ul>
         </>
       )}
+      <DarkModeSettings />
     </div>
   );
 }
